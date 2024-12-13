@@ -1,5 +1,5 @@
 arg ODOO_VERSION=master
-arg DOCKER_BASE_IMAGE=ghcr.io/erpm-bv/odoo-docker:${ODOO_VERSION}-dev
+arg DOCKER_BASE_IMAGE=ghcr.io/erpm-bv/odoo-dev-docker:${ODOO_VERSION}-dev
 
 # Create the vscode development image
 # python (dev) requirements
