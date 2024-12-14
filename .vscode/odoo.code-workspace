@@ -7,11 +7,15 @@
 		},
 		{
 			"name": "odoo",
-			"path": "../../odoo"
+			"path": "../opt/odoo"
 		},
 		{
 			"name": "odoo-addons",
-			"path": "../../odoo-addons"
+			"path": "../opt/odoo-addons"
+		},
+		{
+			"name": "oca-addons",
+			"path": "../opt/oca-addons"
 		}
 	],
 	"launch": {
@@ -36,6 +40,10 @@
 					{
 						"localRoot": "${workspaceFolder:odoo-addons}",
 						"remoteRoot": "/opt/odoo-addons"
+					},
+					{
+						"localRoot": "${workspaceFolder:oca-addons}",
+						"remoteRoot": "/opt/oca-addons"
 					}
 				]
 			}
