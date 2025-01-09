@@ -31,7 +31,6 @@
 				"python.autoComplete.extraPaths": [
 					"/opt/odoo",
 					"/opt/odoo-addons",
-					"/opt/oca-addons",
 					"/odoo-workspace/addons/*"
 				],
 				"[javascript]": {
