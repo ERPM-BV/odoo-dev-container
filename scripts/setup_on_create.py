@@ -16,7 +16,7 @@ def create_dotenv(container_type):
     dotenv_path = BASE_DIR / ".env"
     if dotenv_path.exists():
         return
-    log.info("create %s", dotenv_path)
+    # log.info("create %s", dotenv_path)
     extra_addons = "/mnt/extra-addons"
     if container_type == "devcontainer":
         extra_addons = "/odoo-workspace/addons"
@@ -45,7 +45,7 @@ def create_compose_override():
     path = BASE_DIR / "docker-compose.override.yaml"
     if path.exists():
         return
-    log.info("create %s", path)
+    # log.info("create %s", path)
     shutil.copy(SCRIPT_DIR / "docker-compose.default.yaml", path)
 
 
@@ -55,7 +55,7 @@ def create_vscode_launch(container_type):
         launch_type = 'devcontainer'
     link = f"../scripts/launch.{launch_type}.json"
     path = BASE_DIR / ".vscode" / "launch.json"
-    log.info("symlink %s", path)
+    # log.info("symlink %s", path)
     tmp_path = str(path) + '.tmp'
     os.symlink(link, tmp_path)
     os.rename(tmp_path, path)
