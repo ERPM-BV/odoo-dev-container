@@ -23,8 +23,8 @@ def create_dotenv(container_type):
     content = [
         (SCRIPT_DIR / "env-template").read_text(),
         "",
-        # "# User uid",
-        # f"DEV_UID={os.getuid()}",
+        "# User uid",
+        f"DEV_UID=1000",
         "# Odoo paths",
         "ODOO_DATA_DIR=/var/lib/odoo",
         "ODOO_BASEPATH=/opt/odoo",
