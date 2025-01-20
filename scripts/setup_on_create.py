@@ -74,7 +74,7 @@ def main(args=None):
     action = args.action
 
     if action in ('devcontainer', 'compose'):
-        log.info("setup %s in %s", action, BASE_DIR)
+        # log.info("setup %s in %s", action, BASE_DIR)
         create_dotenv(action)
         create_compose_override()
         create_vscode_launch(action)
