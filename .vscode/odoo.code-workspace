@@ -2,16 +2,20 @@
 {
 	"folders": [
 		{
-			"name": "project",
-			"path": ".."
+			"name": "custom",
+			"path": "../addons"
 		},
 		{
 			"name": "odoo",
-			"path": "../opt/odoo"
+			"path": "/opt/odoo"
 		},
 		{
 			"name": "odoo-addons",
-			"path": "../opt/odoo-addons"
+			"path": "/opt/odoo-addons"
+		},
+				{
+			"name": "project",
+			"path": ".."
 		}
 	],
 	"launch": {
