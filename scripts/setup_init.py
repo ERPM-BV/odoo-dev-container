@@ -16,7 +16,7 @@ def create_dotenv(container_type):
     dotenv_path = BASE_DIR / ".env"
     if dotenv_path.exists():
         return
-    log.info("create %s", dotenv_path)
+    # log.info("create %s", dotenv_path)
     extra_addons = "/mnt/extra-addons"
     if container_type == "devcontainer":
         extra_addons = "/odoo-workspace/addons"
@@ -24,7 +24,7 @@ def create_dotenv(container_type):
         (SCRIPT_DIR / "env-template").read_text(),
         "",
         "# User uid",
-        f"DEV_UID={os.getuid()}",
+        f"DEV_UID=1000",
         "# Odoo paths",
         "ODOO_DATA_DIR=/var/lib/odoo",
         "ODOO_BASEPATH=/opt/odoo",
@@ -41,13 +41,21 @@ def create_dotenv(container_type):
     dotenv_path.write_text("\n".join(content))
 
 
+def create_compose_override():
+    path = BASE_DIR / "docker-compose.override.yaml"
+    if path.exists():
+        return
+    # log.info("create %s", path)
+    shutil.copy(SCRIPT_DIR / "docker-compose.default.yaml", path)
+
+
 def create_vscode_launch(container_type):
     launch_type = 'attach'
     if container_type == 'devcontainer':
         launch_type = 'devcontainer'
     link = f"../scripts/launch.{launch_type}.json"
     path = BASE_DIR / ".vscode" / "launch.json"
-    log.info("symlink %s", path)
+    # log.info("symlink %s", path)
     tmp_path = str(path) + '.tmp'
     os.symlink(link, tmp_path)
     os.rename(tmp_path, path)
@@ -66,8 +74,9 @@ def main(args=None):
     action = args.action
 
     if action in ('devcontainer', 'compose'):
-        log.info("setup %s in %s", action, BASE_DIR)
+        # log.info("setup %s in %s", action, BASE_DIR)
         create_dotenv(action)
+        create_compose_override()
         create_vscode_launch(action)
 
 
