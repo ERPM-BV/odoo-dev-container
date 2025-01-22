@@ -55,10 +55,10 @@ def create_vscode_launch(container_type):
         launch_type = 'devcontainer'
     link = f"../scripts/launch.{launch_type}.json"
     path = BASE_DIR / ".vscode" / "launch.json"
-    # log.info("symlink %s", path)
-    tmp_path = str(path) + '.tmp'
-    os.symlink(link, tmp_path)
-    os.rename(tmp_path, path)
+    if not os.path.isfile(path):
+        tmp_path = str(path) + '.tmp'
+        os.symlink(link, tmp_path)
+        os.rename(tmp_path, path)
 
 
 def main(args=None):
