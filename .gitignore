@@ -4,6 +4,7 @@
 /.vscode/launch.json
 *.override.yaml
 *.local.*
+*.tmp
 
 # Python and temporary files
 *.py[cod]

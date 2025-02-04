@@ -1,0 +1,3 @@
+[submodule "addons/winclove"]
+	path = addons/winclove
+	url = https://github.com/erpopen-sources/winclove_sh.git
